@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xuyx.tk","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="一，绪论第一节：软件工程概念的提出与发展 软件危机：速度，质量，成本（软件开发的速度，软件制品的质量，软件开发成本是软件工程的三个核心问题）。 软件工程的发展： 20世纪60-80年代：瀑布模型；过程化语言；支持工具 20世纪80年代至今：软件复用技术；软件生产管理；面向对象语言 近几年：软件复用技术；构件技术；平台技术；需求工程技术；领域分析技术；应用集成技术    第二节：软件开发的本质 软件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程">
+<meta property="og:url" content="https://blog.xuyx.tk/2021/10/07/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Freedomxu">
+<meta property="og:description" content="一，绪论第一节：软件工程概念的提出与发展 软件危机：速度，质量，成本（软件开发的速度，软件制品的质量，软件开发成本是软件工程的三个核心问题）。 软件工程的发展： 20世纪60-80年代：瀑布模型；过程化语言；支持工具 20世纪80年代至今：软件复用技术；软件生产管理；面向对象语言 近几年：软件复用技术；构件技术；平台技术；需求工程技术；领域分析技术；应用集成技术    第二节：软件开发的本质 软件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-07T09:03:36.109Z">
+<meta property="article:modified_time" content="2021-10-11T23:54:35.054Z">
+<meta property="article:author" content="Freedomxu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.xuyx.tk/2021/10/07/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>软件工程 | Freedomxu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Freedomxu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.xuyx.tk/2021/10/07/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Freedomxu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Freedomxu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件工程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-07 17:03:36" itemprop="dateCreated datePublished" datetime="2021-10-07T17:03:36+08:00">2021-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-12 07:54:35" itemprop="dateModified" datetime="2021-10-12T07:54:35+08:00">2021-10-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="一，绪论"><a href="#一，绪论" class="headerlink" title="一，绪论"></a>一，绪论</h3><h5 id="第一节：软件工程概念的提出与发展"><a href="#第一节：软件工程概念的提出与发展" class="headerlink" title="第一节：软件工程概念的提出与发展"></a>第一节：软件工程概念的提出与发展</h5><ul>
+<li>软件危机：速度，质量，成本（软件开发的速度，软件制品的质量，软件开发成本是软件工程的三个核心问题）。</li>
+<li>软件工程的发展：<ol>
+<li>20世纪60-80年代：瀑布模型；过程化语言；支持工具</li>
+<li>20世纪80年代至今：软件复用技术；软件生产管理；面向对象语言</li>
+<li>近几年：软件复用技术；构件技术；平台技术；需求工程技术；领域分析技术；应用集成技术</li>
+</ol>
+</li>
+</ul>
+<h5 id="第二节：软件开发的本质"><a href="#第二节：软件开发的本质" class="headerlink" title="第二节：软件开发的本质"></a>第二节：软件开发的本质</h5><ul>
+<li>软件 = 程序+文档</li>
+<li>软件开发的本质：”映射“，即实现问题空间的概念和处理逻辑到解空间的概念和处理逻辑之间的映射</li>
+<li>系统建模：运用所掌握的知识，通过抽象，给出系统的一个结构</li>
+<li>模型：模型是一个抽象。模型是在特定意图下所确定的角度和抽象层次上对物理系统的描述，通常包含对该系统边界的描述，对系统内各模型元素以及它们之间关系的语义描述。</li>
+<li>系统模型的类型：<ol>
+<li>概念模型：描述软件是什么</li>
+<li>软件模型：实现概念模型的软件解决方案。包括设计模型，实现模型和部署模型。</li>
+</ol>
+</li>
+</ul>
+<h3 id="二，需求获取"><a href="#二，需求获取" class="headerlink" title="二，需求获取"></a>二，需求获取</h3><h5 id="第一节：需求与需求获取"><a href="#第一节：需求与需求获取" class="headerlink" title="第一节：需求与需求获取"></a>第一节：需求与需求获取</h5><ul>
+<li>需求的定义：一个需求是有关一个”要予构造“的陈诉，描述了待开发产品/系统功能能力，性能参数或其它性质。</li>
+<li>需求的基本性质：必要的，无歧义的，可测的，可跟踪的，可测量的</li>
+<li>需求的分类：能够区分哪些是功能需求，哪些<ol>
+<li>功能需求：是整个需求的整体。</li>
+<li>非功能需求：性能需求，外部接口需求，设计约束和质量属性需求。</li>
+</ol>
+</li>
+<li>接口需求的类别：用户接口，硬件接口，软件接口，通信接口，内存约束，运行，地点需求</li>
+<li>设计约束需求：法规政策，硬件限制，与其它应用的接口，并发操作，审计能力，控制功能，高级语言需求，握手协议，应用的关键程度，安全和保密</li>
+<li>质量属性：可靠性，存活性，可维护性，友好性</li>
+<li>需求发现的技术：自悟，交谈，观察，小组会，提炼</li>
+</ul>
+<h5 id="第二节：需求规约"><a href="#第二节：需求规约" class="headerlink" title="第二节：需求规约"></a>第二节：需求规约</h5><ul>
+<li>需求规约的定义：是一个软件/产品/系统所有需求陈诉的正式文档，它表达了一个软件/产品/系统的概念模型。</li>
+<li>需求规约的基本性质：<ol>
+<li>重要性和稳定性程度：对需求进行分级</li>
+<li>可修改的</li>
+<li>完整的：没有被遗漏的需求</li>
+<li>一致的：不存在互斥的需求</li>
+</ol>
+</li>
+<li>需求规约的格式：IEEE标准830-1998（IEEE 1998）描述的需求规格说明书模板。</li>
+<li>需求规约的表达：<ol>
+<li>非形式化的需求规约</li>
+<li>半形式化的需求规约</li>
+<li>形式化的需求规约</li>
+</ol>
+</li>
+<li>需求规约的作用<ol>
+<li>需求规约是软件开发组织和用户之间一份事实上的技术合同书，是产品功能及其环境的体现。</li>
+<li>需求规约是一个管理控制点</li>
+<li>对于产品/系统的设计，需求规约是一个正式的，受控的起始点</li>
+<li>需求规约是创建产品验收计划和用户指南的基础</li>
+</ol>
+</li>
+</ul>
+<h3 id="三，结构化方法"><a href="#三，结构化方法" class="headerlink" title="三，结构化方法"></a>三，结构化方法</h3><h5 id="第一节：结构化需求分析"><a href="#第一节：结构化需求分析" class="headerlink" title="第一节：结构化需求分析"></a>第一节：结构化需求分析</h5><ul>
+<li>需求分析面临的挑战：<ol>
+<li>问题空间理解</li>
+<li>人与人之间的通信，”有效沟通“</li>
+<li>需求的变化性</li>
+</ol>
+</li>
+<li>结构化分析中的基本术语及表示方法<ol>
+<li>数据流        ——–&gt;</li>
+<li>加工           椭圆形</li>
+<li>数据存储   两道横杠</li>
+<li>数据源和数据潭  长方形</li>
+</ol>
+</li>
+<li>数据流图DFD图：用于建立系统功能模型。是一种描述数据变换的图形化工具，其中包含的元素可以是数据流，数据存储，加工，数据源和数据潭等。</li>
+<li>建模过程：自顶向下，功能分解</li>
+<li>绘制数据流图时要注意的问题：<ol>
+<li>黑洞，即只有输入而没有输出。</li>
+<li>只有输出而没有输入</li>
+<li>灰洞，即输入不足以产生输出。灰洞是经常也是不易被察觉的错误。</li>
+<li>加工处理只用来表示数据的处理和变化，避免将计算机命令作为处理。</li>
+<li>数据流必须起于且/或止于处理，即每一个数据流必须有一个处理与之有关，数据流不能起于数据存储；也不能起于某个实体且止于另一个数据源/数据潭或数据存储。</li>
+</ol>
+</li>
+<li>数据字典：定义数据流程图中所有数据流和数据存储的数据结构。<ol>
+<li>顺序结构：+</li>
+<li>选择结构：|</li>
+<li>重复（循环）结构：{ }</li>
+<li>子界：m . . n</li>
+</ol>
+</li>
+<li>加工的描述<ol>
+<li>判定表：</li>
+<li>判定树</li>
+<li>结构化语言</li>
+</ol>
+</li>
+<li>需求验证<ol>
+<li>验证每一个需求满足5个性质：必要的，无歧义的，可测的，可跟踪的，可测量的</li>
+<li>验证需求规格说明书满足4个性质：重要性和稳定性程度，可修改的，完整的，一致的</li>
+</ol>
+</li>
+</ul>
+<h5 id="第二节：结构化设计：分为总体设计和详细设计"><a href="#第二节：结构化设计：分为总体设计和详细设计" class="headerlink" title="第二节：结构化设计：分为总体设计和详细设计"></a>第二节：结构化设计：分为总体设计和详细设计</h5><ul>
+<li>总体设计的任务：把系统的功能需求分配到一个特定的软件体系结构中。</li>
+<li>表达软件体系结构的工具：模块结构图，层次图，HIPO图</li>
+<li>总体设计步骤：将DFD图映射为设计层面的模块及模块调用。<ol>
+<li>变换流：一个现行的顺序结构，由输入臂，输出臂和变换中心三部分组成。</li>
+<li>事务流：事务流的数据流程图中有一个事务处理中心，它将输入分为许多相互平行的加工路径，然后根据输入的属性，选择某一加工路径。</li>
+</ol>
+</li>
+<li>模块 ：执行一个特殊任务的一个过程以及相关的数据结构。模块通常由两部分组成：模块接口和模块体。</li>
+<li>模块化：”分而治之“和”抽象“</li>
+<li>内聚：</li>
+<li>模块耦合</li>
+<li>详细设计：具体描述模块结构图中的每一模块，即给出实现模块功能的实施机制，包括一组例程和数据结构。</li>
+<li>结构化程序设计方法：顺序，选择，循环</li>
+<li>详细设计工具<ol>
+<li>程序流程图</li>
+<li>盒图（N-S图）</li>
+<li>PAD图</li>
+</ol>
+</li>
+</ul>
+<h5 id="设计规约"><a href="#设计规约" class="headerlink" title="设计规约"></a>设计规约</h5><p>​    设计规约包括概要设计规约和详细设计规约。</p>
+<ul>
+<li><p>概要设计规约</p>
+</li>
+<li><p>详细设计规约</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/19/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E4%BE%8B/" rel="prev" title="Nginx反向代理实例">
+      <i class="fa fa-chevron-left"></i> Nginx反向代理实例
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E7%BB%AA%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">一，绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%9A%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A6%82%E5%BF%B5%E7%9A%84%E6%8F%90%E5%87%BA%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一节：软件工程概念的提出与发展</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%9A%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二节：软件开发的本质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text">二，需求获取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%9A%E9%9C%80%E6%B1%82%E4%B8%8E%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96"><span class="nav-number">2.0.1.</span> <span class="nav-text">第一节：需求与需求获取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%9A%E9%9C%80%E6%B1%82%E8%A7%84%E7%BA%A6"><span class="nav-number">2.0.2.</span> <span class="nav-text">第二节：需求规约</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%EF%BC%8C%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">三，结构化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%9A%E7%BB%93%E6%9E%84%E5%8C%96%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">3.0.1.</span> <span class="nav-text">第一节：结构化需求分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%9A%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%EF%BC%9A%E5%88%86%E4%B8%BA%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E5%92%8C%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.0.2.</span> <span class="nav-text">第二节：结构化设计：分为总体设计和详细设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E7%BA%A6"><span class="nav-number">3.0.3.</span> <span class="nav-text">设计规约</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Freedomxu"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Freedomxu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/purexu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;purexu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Freedomxu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
